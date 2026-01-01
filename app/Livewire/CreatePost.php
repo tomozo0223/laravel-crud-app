@@ -28,7 +28,7 @@ class CreatePost extends Component
 
         session()->flash('status', '投稿できました');
 
-        return $this->redirect('/posts/create');
+        return $this->redirect('/posts');
     }
 
     public function render()
