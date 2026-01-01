@@ -6,6 +6,10 @@
             <flux:button href="{{ route('posts.create') }}" variant="primary" color="blue">新規投稿</flux:button>
         </div>
 
+        @if (session('status'))
+            <span class="text-red-400 bg-white p-1 w-full block rounded-md mt-4">{{ session('status') }}</span>
+        @endif
+
         @foreach ($posts as $post)
             <div class="max-full bg-white shadow-md rounded-lg p-4 mb-4 mt-8 border">
                 <div class="flex justify-between border-b-2">
@@ -19,7 +23,8 @@
                 </div>
                 <div class="flex justify-end mt-4 gap-2">
                     <flux:button href="{{ route('posts') }}" variant="primary" color="green">編集</flux:button>
-                    <flux:button variant="danger">削除</flux:button>
+                    <flux:button variant="danger" wire:click="delete({{ $post->id }})" wire:confirm="本当に削除しますか？">削除
+                    </flux:button>
                 </div>
             </div>
         @endforeach
