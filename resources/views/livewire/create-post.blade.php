@@ -24,6 +24,7 @@
                 <div>
                     <flux:button type="submit" variant="primary" class="bg-green-400">投稿</flux:button>
                 </div>
+            </div>
         </form>
     </div>
 </div>
