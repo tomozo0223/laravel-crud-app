@@ -22,7 +22,8 @@
                     投稿日：{{ $post->created_at->format('Y-m-d H:i') }}
                 </div>
                 <div class="flex justify-end mt-4 gap-2">
-                    <flux:button href="{{ route('posts') }}" variant="primary" color="green">編集</flux:button>
+                    <flux:button href="{{ route('posts.edit', $post->id) }}" variant="primary" color="green">編集
+                    </flux:button>
                     <flux:button variant="danger" wire:click="delete({{ $post->id }})" wire:confirm="本当に削除しますか？">削除
                     </flux:button>
                 </div>
