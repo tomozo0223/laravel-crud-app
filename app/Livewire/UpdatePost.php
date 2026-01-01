@@ -17,7 +17,7 @@ class UpdatePost extends Component
     #[Validate('min:10', message: '本文は10文字以上で入力してください')]
     public $body = '';
 
-    public function mount($post)
+    public function mount(Post $post)
     {
         $this->title = $post->title;
         $this->body = $post->body;
@@ -34,7 +34,7 @@ class UpdatePost extends Component
 
         session()->flash('status', '編集できました。');
 
-        return redirect('/posts');
+        return redirect()->route('posts.show', $this->post->id);
     }
 
     public function render()
